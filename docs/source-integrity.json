@@ -1,0 +1,357 @@
+{
+  "client/App.tsx": {
+    "original": "13a3a39087cb896a5a23917b0cf78e9f49c373cc1a943eb6c535142f6c38961d",
+    "migrated": "503dd95e1c6e0756bd39ac51079ccc7fd24759637c543975e92dafe8f32d6557",
+    "change": "User-requested All Clients card and separate /clients directory, 2026-10-29"
+  },
+  "client/index.css": {
+    "original": "5b33084e00553a1da06104cf8ca63718ec3624dbb5ed3675f62dd74fc69e4693",
+    "migrated": "5b33084e00553a1da06104cf8ca63718ec3624dbb5ed3675f62dd74fc69e4693"
+  },
+  "client/components/PasscodeGate.tsx": {
+    "original": "6ecbf451aafc9c881559a90d4331696ea05a6e235ee7a318bf9599a49e1750b9",
+    "migrated": "5e8db8f82c01a57e711d83f7841cd3c5b03625d02506f4030272228e97240cc3"
+  },
+  "client/hooks/use-tax-mutations.ts": {
+    "original": "4d87bbfc61ea88855a37e3ed68d5c19106dc6fb4d5ad7ac2c3c2d2876d5f8643",
+    "migrated": "4d87bbfc61ea88855a37e3ed68d5c19106dc6fb4d5ad7ac2c3c2d2876d5f8643"
+  },
+  "client/hooks/use-toast.ts": {
+    "original": "5aab0623ee24bddf9420c259a23a06996292e38ea70eccbac2715516f6d01a0b",
+    "migrated": "5aab0623ee24bddf9420c259a23a06996292e38ea70eccbac2715516f6d01a0b"
+  },
+  "client/lib/format.ts": {
+    "original": "b88bfe332d4e873ef0d3885b206afdc3bdeddde188cb76c0d4502c2e028a3319",
+    "migrated": "b88bfe332d4e873ef0d3885b206afdc3bdeddde188cb76c0d4502c2e028a3319"
+  },
+  "client/lib/generatePdf.ts": {
+    "original": "5e0c57a244a183c9fa148a3737e9b80a7b9d8b71dfc21b34a6d33a9f3f83e6b0",
+    "migrated": "b1cab39d027978cd2478f2fc78a3c1a0d3d394b92a2c98ff1a8acd94b480876c"
+  },
+  "client/lib/generateSCorpPdf.ts": {
+    "original": "44fc450c034af0524f81e7bc1fb08f7ba6b9f0b3c4b4b587ebe79e8ca2d01298",
+    "migrated": "8e493ca5149a2a9faba89e5d76b195afb9a220073db495f0c22ea8e1b4b5e67b"
+  },
+  "client/lib/scorpCalculations.ts": {
+    "original": "59b5ffec33ca2b8dd282d1a58a9f77590bdd4ec603c8dc4040ab35bf917cf5ea",
+    "migrated": "59b5ffec33ca2b8dd282d1a58a9f77590bdd4ec603c8dc4040ab35bf917cf5ea"
+  },
+  "client/lib/utils.ts": {
+    "original": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d",
+    "migrated": "7c8c3dfc0cdd370d44932828eb067ef771c8fe7996693221d5d4b90af6d54f2d"
+  },
+  "client/pages/ClientDetail.tsx": {
+    "original": "f8b7acf5136d22080417921961756c7d3e7f5e46f71b5e7595e7acca06c3c0cb",
+    "migrated": "f8b7acf5136d22080417921961756c7d3e7f5e46f71b5e7595e7acca06c3c0cb"
+  },
+  "client/pages/Home.tsx": {
+    "original": "f5aa40cf3594eed478aafeefdd0e54872dced90adae02c20dbe1940dfeeba56a",
+    "migrated": "e06f1eef9cbcc796085d25dba263554cfe45fe876425d6f9a1268f215389e72a",
+    "change": "User-requested All Clients card and separate /clients directory, 2026-10-29"
+  },
+  "client/pages/not-found.tsx": {
+    "original": "718a41bd05a163d1db32480aba013f5fe754894e656b6542a8e4b302275b172e",
+    "migrated": "718a41bd05a163d1db32480aba013f5fe754894e656b6542a8e4b302275b172e"
+  },
+  "client/pages/SCorpCalculator.tsx": {
+    "original": "7a4c100fe60ceb362b35aea9d5a81b01c2c34e66891b47e3d82ec74101767d63",
+    "migrated": "7a4c100fe60ceb362b35aea9d5a81b01c2c34e66891b47e3d82ec74101767d63"
+  },
+  "client/components/client/ClientFormDialog.tsx": {
+    "original": "e2a028c5b6bfc9399de96b46e7e86a39427a782cbabc2f96295e898fac2370c3",
+    "migrated": "e2a028c5b6bfc9399de96b46e7e86a39427a782cbabc2f96295e898fac2370c3"
+  },
+  "client/components/client/IncomeTab.tsx": {
+    "original": "99266fe116c7c91eccd76e1348210da77c0e3ae64e5fb519e733dfb8057a2e7c",
+    "migrated": "99266fe116c7c91eccd76e1348210da77c0e3ae64e5fb519e733dfb8057a2e7c"
+  },
+  "client/components/client/PaymentsTab.tsx": {
+    "original": "dfaa24310c970fd85bda015771827beea56de7cb639acea2724bc4c874afb70d",
+    "migrated": "dfaa24310c970fd85bda015771827beea56de7cb639acea2724bc4c874afb70d"
+  },
+  "client/components/client/SummaryTab.tsx": {
+    "original": "5b542181cbbd086a4579e6b5362974a98b44739f799e3a1bfa80be71a4416d6d",
+    "migrated": "5b542181cbbd086a4579e6b5362974a98b44739f799e3a1bfa80be71a4416d6d"
+  },
+  "client/components/layout/AppLayout.tsx": {
+    "original": "5e93e620d7f99ed3ce56307106722f870a0f9a552a7a9c45d46d3074d35e9221",
+    "migrated": "fb1bde6f051b7cf95b2d36b1ad218b000e369c5e704d4af88fa571944af9158f"
+  },
+  "client/components/ui/alert-dialog.tsx": {
+    "original": "311bede35f785d7b1ecd7398986757e26409d1049352a94ccf83586b8603c92d",
+    "migrated": "311bede35f785d7b1ecd7398986757e26409d1049352a94ccf83586b8603c92d"
+  },
+  "client/components/ui/alert.tsx": {
+    "original": "5950ac01377e7eedc94b00eb3fee678745e4cc1a72b5343867f0733d07db6660",
+    "migrated": "5950ac01377e7eedc94b00eb3fee678745e4cc1a72b5343867f0733d07db6660"
+  },
+  "client/components/ui/badge.tsx": {
+    "original": "3c339f439797dba9b3872a9d89db42420ffd900504b4e0b27e9dad51e87bc41c",
+    "migrated": "3c339f439797dba9b3872a9d89db42420ffd900504b4e0b27e9dad51e87bc41c"
+  },
+  "client/components/ui/button.tsx": {
+    "original": "9a9edf4fda319623ee228d5cb26ac31dd008dcfd5c57dbafe3b7d768e59e50ca",
+    "migrated": "9a9edf4fda319623ee228d5cb26ac31dd008dcfd5c57dbafe3b7d768e59e50ca"
+  },
+  "client/components/ui/card.tsx": {
+    "original": "525c4bb2c051987be64df0e92e1d90174912b219bf541e24ffbc4a3406de49e8",
+    "migrated": "525c4bb2c051987be64df0e92e1d90174912b219bf541e24ffbc4a3406de49e8"
+  },
+  "client/components/ui/dialog.tsx": {
+    "original": "f9c982ed8114c253c6ca738043d3f455e89c6d65569e90c9415776d6b4d6be14",
+    "migrated": "f9c982ed8114c253c6ca738043d3f455e89c6d65569e90c9415776d6b4d6be14"
+  },
+  "client/components/ui/form.tsx": {
+    "original": "d50adf86568f76246f0f319c9e1e858627475563f6c1e38f5df7d4ee23958559",
+    "migrated": "d50adf86568f76246f0f319c9e1e858627475563f6c1e38f5df7d4ee23958559"
+  },
+  "client/components/ui/input.tsx": {
+    "original": "6299a6a387dc55e528aec4342deaea0b83f1ea3a365c135a31a18ee55334f441",
+    "migrated": "6299a6a387dc55e528aec4342deaea0b83f1ea3a365c135a31a18ee55334f441"
+  },
+  "client/components/ui/label.tsx": {
+    "original": "2eac8fbb04002c42b0fbc4062d20d131e421796eaf65c37d2049e29e42ecbc5a",
+    "migrated": "2eac8fbb04002c42b0fbc4062d20d131e421796eaf65c37d2049e29e42ecbc5a"
+  },
+  "client/components/ui/select.tsx": {
+    "original": "3d93ae07a8f3fe121ba60f4439e26bd7859f247eb8bfcafcf4b4a8a069888eec",
+    "migrated": "3d93ae07a8f3fe121ba60f4439e26bd7859f247eb8bfcafcf4b4a8a069888eec"
+  },
+  "client/components/ui/skeleton.tsx": {
+    "original": "87608e7cc815ad3d88e0b9de6c402bb37b58ea1b38636cf69709da1baff6e334",
+    "migrated": "87608e7cc815ad3d88e0b9de6c402bb37b58ea1b38636cf69709da1baff6e334"
+  },
+  "client/components/ui/switch.tsx": {
+    "original": "ba5867cd3145af1290edd80bb56d4b6d61c6331aa8ef96ae0b85487f4499feaf",
+    "migrated": "ba5867cd3145af1290edd80bb56d4b6d61c6331aa8ef96ae0b85487f4499feaf"
+  },
+  "client/components/ui/tabs.tsx": {
+    "original": "6f74706bc6b53f9e4bcebb5e7ab8743b616aef181edc7758b8ee905f9b2fdcd7",
+    "migrated": "6f74706bc6b53f9e4bcebb5e7ab8743b616aef181edc7758b8ee905f9b2fdcd7"
+  },
+  "client/components/ui/textarea.tsx": {
+    "original": "ec7c92aaed80f6923a7caa4bfe4eead395b50a7001504fd7fbb0b9381804dae9",
+    "migrated": "ec7c92aaed80f6923a7caa4bfe4eead395b50a7001504fd7fbb0b9381804dae9"
+  },
+  "client/components/ui/toast.tsx": {
+    "original": "99f9f4a3e897f71d89b01c6772b2f5db51b888cecb2c8214fb2c2dbb2b3e6356",
+    "migrated": "99f9f4a3e897f71d89b01c6772b2f5db51b888cecb2c8214fb2c2dbb2b3e6356"
+  },
+  "client/components/ui/toaster.tsx": {
+    "original": "1348f1a1f9820e2f1394b93cecc156a7e22f03636ab9270753985549aae2be74",
+    "migrated": "1348f1a1f9820e2f1394b93cecc156a7e22f03636ab9270753985549aae2be74"
+  },
+  "client/components/ui/tooltip.tsx": {
+    "original": "ce6afa34fb9dae51053a863b4c3f7c6e55f3da23b00149f31a8e4402bc963be0",
+    "migrated": "ce6afa34fb9dae51053a863b4c3f7c6e55f3da23b00149f31a8e4402bc963be0"
+  },
+  "client/pages/TaxSavingsAnalyzer/index.tsx": {
+    "original": "34bf29156dcb67d3fe0e7af49359ed3088900c296a876549f771985c4f4c0cc7",
+    "migrated": "1e2b46d950c4195d226273e8420641ec8d5201b5a4138ddba682f83da38296b4"
+  },
+  "client/pages/TaxSavingsAnalyzer/NewPlan.tsx": {
+    "original": "df8656af1a512af678e5dd2e8230a099b8d235c4b019735ed6cb030834687315",
+    "migrated": "6fffee3f4d7d094b3e4b44a98db1e79c63fb74fce9d321efd4f96b84a02451c9"
+  },
+  "client/pages/TaxSavingsAnalyzer/steps/Step1ClientInfo.tsx": {
+    "original": "2892a6e7ed89a9c9947c1eb34cae96ca906af050cb50b41bd508eb07e0c5ee85",
+    "migrated": "2892a6e7ed89a9c9947c1eb34cae96ca906af050cb50b41bd508eb07e0c5ee85"
+  },
+  "client/pages/TaxSavingsAnalyzer/steps/Step2FinancialInputs.tsx": {
+    "original": "f7c2255fc49726c6ed63c96d6aecd9595578c5a102ec3bdcf5633b7b0e131656",
+    "migrated": "f7c2255fc49726c6ed63c96d6aecd9595578c5a102ec3bdcf5633b7b0e131656"
+  },
+  "client/pages/TaxSavingsAnalyzer/steps/Step3StrategySelection.tsx": {
+    "original": "e35df5eb13f707c6f5ef0b85f8af0bebedfc1010c34f138dfcd576ad7c85acec",
+    "migrated": "e35df5eb13f707c6f5ef0b85f8af0bebedfc1010c34f138dfcd576ad7c85acec"
+  },
+  "client/pages/TaxSavingsAnalyzer/steps/Step4Review.tsx": {
+    "original": "01be8c52c50c8d96f92512f1141c9c4ef0c7cec27c1fa7cfc4efac06d65e7c48",
+    "migrated": "01be8c52c50c8d96f92512f1141c9c4ef0c7cec27c1fa7cfc4efac06d65e7c48"
+  },
+  "client/pages/TaxSavingsAnalyzer/types/plan.ts": {
+    "original": "3bdd6da0bb40cb2c1d559d30e1daf703af9c18d24719fdfcc41bb67a676665d0",
+    "migrated": "3bdd6da0bb40cb2c1d559d30e1daf703af9c18d24719fdfcc41bb67a676665d0"
+  },
+  "client/pages/TaxSavingsAnalyzer/utils/backup.ts": {
+    "original": "2c18f2c37f8e0ad14bae4638a1a4d85b0c34178682c6b1d9566ef4db30c022c2",
+    "migrated": "2c18f2c37f8e0ad14bae4638a1a4d85b0c34178682c6b1d9566ef4db30c022c2"
+  },
+  "client/pages/TaxSavingsAnalyzer/utils/pdfExport.ts": {
+    "original": "bb9edb299ed80f9cb69bf504cbc2b5119f5d9aa86319d146f7a316dd23b8b39f",
+    "migrated": "86db0f2f27280a0ea883bc9ad39943bd044b7cb0b6096bf9734c88b2c015316d"
+  },
+  "client/pages/TaxSavingsAnalyzer/utils/strategyDefinitions.ts": {
+    "original": "1b6a7d4ab358ffd5f48d41d9f5fc7fb6df87347c1c30494e280405f462b8660e",
+    "migrated": "1b6a7d4ab358ffd5f48d41d9f5fc7fb6df87347c1c30494e280405f462b8660e"
+  },
+  "client/pages/TaxSavingsAnalyzer/utils/taxCalculations.ts": {
+    "original": "a90e19c89ae85bfce7ee337f2c96654094e89ad21c1a3d0e4966ca9efd554832",
+    "migrated": "a90e19c89ae85bfce7ee337f2c96654094e89ad21c1a3d0e4966ca9efd554832"
+  },
+  "server/app.ts": {
+    "original": "9880109de818e5760a3491e6a6f3cc77f01c839d034b567dcf10fc195766d511",
+    "migrated": "9880109de818e5760a3491e6a6f3cc77f01c839d034b567dcf10fc195766d511"
+  },
+  "server/lib/.gitkeep": {
+    "original": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "migrated": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "server/lib/taxCalculator.ts": {
+    "original": "347b4dc8590dfc2b1d36fd89f906cac96dad2111fda02f3a7edf955e14746d55",
+    "migrated": "347b4dc8590dfc2b1d36fd89f906cac96dad2111fda02f3a7edf955e14746d55"
+  },
+  "server/middlewares/.gitkeep": {
+    "original": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "migrated": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  "server/routes/clients.ts": {
+    "original": "d9c34ca258e1b39d02dca79e26c0dca314bb8ea793d16e5c2a7410526b481324",
+    "migrated": "d9c34ca258e1b39d02dca79e26c0dca314bb8ea793d16e5c2a7410526b481324"
+  },
+  "server/routes/health.ts": {
+    "original": "0386ceddb4ff4bff220af72ca38a62191ad95a2f41fd619df3bb9ceffce03db2",
+    "migrated": "0386ceddb4ff4bff220af72ca38a62191ad95a2f41fd619df3bb9ceffce03db2"
+  },
+  "server/routes/index.ts": {
+    "original": "cba8316d5e8b5a3504b83770221e543f64ad9a1502079194579ffd6f999a06f6",
+    "migrated": "cba8316d5e8b5a3504b83770221e543f64ad9a1502079194579ffd6f999a06f6"
+  },
+  "lib/db/index.ts": {
+    "original": "fc285bc83108137ba57c4c2774a35053e3c25fda1292c3d7a16a57d43dd9679c",
+    "migrated": "0ce078ffa1010dc66fd8c2354eec1e9c302d5cacf212668c832ad0c149ff8631",
+    "change": "Authorized Supabase/Vercel connection configuration: strict provider CA, bounded pool and lifecycle handling; no SQL or tax changes."
+  },
+  "lib/db/schema/clients.ts": {
+    "original": "0626efe956a7928c958177c53e65f93b39bd0d8a34899353bd0b4f72f91f61ab",
+    "migrated": "0626efe956a7928c958177c53e65f93b39bd0d8a34899353bd0b4f72f91f61ab"
+  },
+  "lib/db/schema/estimated_payments.ts": {
+    "original": "c1271a518a8e52e15847857b3fc25ae7f695f20b311fe5221cd6825dc1f9d25a",
+    "migrated": "c1271a518a8e52e15847857b3fc25ae7f695f20b311fe5221cd6825dc1f9d25a"
+  },
+  "lib/db/schema/income_sources.ts": {
+    "original": "3bd77d7fd6ad4e775b9d535b08bcecf6db92a0b0e1ccb31393ae80529f90e6b2",
+    "migrated": "3bd77d7fd6ad4e775b9d535b08bcecf6db92a0b0e1ccb31393ae80529f90e6b2"
+  },
+  "lib/db/schema/index.ts": {
+    "original": "2750f25cd27b4d829698d23cee50b8ae8873dedf66f171e0eab35736c7e806d3",
+    "migrated": "2750f25cd27b4d829698d23cee50b8ae8873dedf66f171e0eab35736c7e806d3"
+  },
+  "lib/api-client-react/custom-fetch.ts": {
+    "original": "2711cc653e07cdd571004dde92425d1ca75361b751e32e5d455a23334b21109c",
+    "migrated": "2711cc653e07cdd571004dde92425d1ca75361b751e32e5d455a23334b21109c"
+  },
+  "lib/api-client-react/index.ts": {
+    "original": "37d7c2029b6c60cb67881ed40c4ac75008babdc1dab21999cf14a56b2e263c67",
+    "migrated": "37d7c2029b6c60cb67881ed40c4ac75008babdc1dab21999cf14a56b2e263c67"
+  },
+  "lib/api-client-react/generated/api.schemas.ts": {
+    "original": "55dbe6cfacb3d5a95a4219e5e1b5819171006ebb12c22fb7eba6f3554428bdf9",
+    "migrated": "55dbe6cfacb3d5a95a4219e5e1b5819171006ebb12c22fb7eba6f3554428bdf9"
+  },
+  "lib/api-client-react/generated/api.ts": {
+    "original": "12a971008dce7ab482ff4acc77dd1e88e6421fe7522b2a760c41814baf316c29",
+    "migrated": "12a971008dce7ab482ff4acc77dd1e88e6421fe7522b2a760c41814baf316c29"
+  },
+  "lib/api-zod/index.ts": {
+    "original": "2bc9200c0ae5438849fbd3e46a0badc8c861e7d9e68ad37d878fbdfe03836519",
+    "migrated": "2bc9200c0ae5438849fbd3e46a0badc8c861e7d9e68ad37d878fbdfe03836519"
+  },
+  "lib/api-zod/generated/api.ts": {
+    "original": "ec8f32e2721c20a6958c550acac789b52f0d244700e5e0f168884a89c13e115a",
+    "migrated": "ec8f32e2721c20a6958c550acac789b52f0d244700e5e0f168884a89c13e115a"
+  },
+  "lib/api-zod/generated/types/client.ts": {
+    "original": "2f735f807d4107cab3711cd9ada6e194b50bd54e634e8775b5bdd6421d6a2287",
+    "migrated": "2f735f807d4107cab3711cd9ada6e194b50bd54e634e8775b5bdd6421d6a2287"
+  },
+  "lib/api-zod/generated/types/clientDetail.ts": {
+    "original": "9dd9b9bb9fab4994e510282fcf1b8a0515be798e3c221cfd430e9374c61cd037",
+    "migrated": "9dd9b9bb9fab4994e510282fcf1b8a0515be798e3c221cfd430e9374c61cd037"
+  },
+  "lib/api-zod/generated/types/clientFilingStatus.ts": {
+    "original": "70a2347a6ac4b9b4ada3132d046ec34fb8199a9f68e4d55776f55d99c5451825",
+    "migrated": "70a2347a6ac4b9b4ada3132d046ec34fb8199a9f68e4d55776f55d99c5451825"
+  },
+  "lib/api-zod/generated/types/createClientRequest.ts": {
+    "original": "72a50b05e0cf8044bdaa7122aa5db83fb53994b6b4951f06c738e7eb3782d532",
+    "migrated": "72a50b05e0cf8044bdaa7122aa5db83fb53994b6b4951f06c738e7eb3782d532"
+  },
+  "lib/api-zod/generated/types/createClientRequestFilingStatus.ts": {
+    "original": "a3f626064e38c95a4c0526f45c45093f53f9cc0d37c343235865460b40425871",
+    "migrated": "a3f626064e38c95a4c0526f45c45093f53f9cc0d37c343235865460b40425871"
+  },
+  "lib/api-zod/generated/types/entityBreakdown.ts": {
+    "original": "ef7cc97bd3a07b0d7ef005bf75facf4edd407eb66e3c643a609f346ba7d73a6e",
+    "migrated": "ef7cc97bd3a07b0d7ef005bf75facf4edd407eb66e3c643a609f346ba7d73a6e"
+  },
+  "lib/api-zod/generated/types/errorResponse.ts": {
+    "original": "ab192f8a6f92f09f8a8e5ec6aeb1aa41b6f398ac88a48c3d78095e7a2174c6ab",
+    "migrated": "ab192f8a6f92f09f8a8e5ec6aeb1aa41b6f398ac88a48c3d78095e7a2174c6ab"
+  },
+  "lib/api-zod/generated/types/estimatedPayment.ts": {
+    "original": "ce0149c297a47248044a6667c86ebfaf1fec1855d349e6ba17c8da0f0c3779f9",
+    "migrated": "ce0149c297a47248044a6667c86ebfaf1fec1855d349e6ba17c8da0f0c3779f9"
+  },
+  "lib/api-zod/generated/types/estimatedPaymentPaymentType.ts": {
+    "original": "32089aa85fbadfde52eb970b12f880dcc04a7358669bcb4d0e03b9983281f179",
+    "migrated": "32089aa85fbadfde52eb970b12f880dcc04a7358669bcb4d0e03b9983281f179"
+  },
+  "lib/api-zod/generated/types/getTaxSummaryParams.ts": {
+    "original": "90f85d05136deede77e03ea28f0ee7f1bb4dd729cd27873e177b97646382f754",
+    "migrated": "90f85d05136deede77e03ea28f0ee7f1bb4dd729cd27873e177b97646382f754"
+  },
+  "lib/api-zod/generated/types/healthStatus.ts": {
+    "original": "7009f2963a8ad940ce7446f294335c5008e89f110b85efcd51b03f60273e9113",
+    "migrated": "7009f2963a8ad940ce7446f294335c5008e89f110b85efcd51b03f60273e9113"
+  },
+  "lib/api-zod/generated/types/incomeSource.ts": {
+    "original": "0895967078e58e388b898e52f0104e813a9b9e85ee863cbbfee87ef3fabe593a",
+    "migrated": "0895967078e58e388b898e52f0104e813a9b9e85ee863cbbfee87ef3fabe593a"
+  },
+  "lib/api-zod/generated/types/index.ts": {
+    "original": "ca74bbf6c81c2a327bc2fe78b287c5ad71e2a7de2d43cf2844d068c141275c03",
+    "migrated": "ca74bbf6c81c2a327bc2fe78b287c5ad71e2a7de2d43cf2844d068c141275c03"
+  },
+  "lib/api-zod/generated/types/listIncomeSourcesParams.ts": {
+    "original": "5c339be38803a2b2dd09d21413da8f1efeeee308d1dffa95d5cc35cd1583dee3",
+    "migrated": "5c339be38803a2b2dd09d21413da8f1efeeee308d1dffa95d5cc35cd1583dee3"
+  },
+  "lib/api-zod/generated/types/listPaymentsParams.ts": {
+    "original": "1a8e2b3722381255e17c329c1b512cb610dcea3a90d5c3407616030110deb3a8",
+    "migrated": "1a8e2b3722381255e17c329c1b512cb610dcea3a90d5c3407616030110deb3a8"
+  },
+  "lib/api-zod/generated/types/quarterSummary.ts": {
+    "original": "2737548dbb9adc41e25d38fd76e91963696168254770eb81c19a9ec1f5c21f69",
+    "migrated": "2737548dbb9adc41e25d38fd76e91963696168254770eb81c19a9ec1f5c21f69"
+  },
+  "lib/api-zod/generated/types/scorpEntry.ts": {
+    "original": "5748bf9d63034581548fd75bd92b3e645eb145409abb997efaa97e875893764a",
+    "migrated": "5748bf9d63034581548fd75bd92b3e645eb145409abb997efaa97e875893764a"
+  },
+  "lib/api-zod/generated/types/taxSummary.ts": {
+    "original": "ac3aa37503e80cd5a21c5f9545e8d9072d8ce259125f5bef92d77a3923a1f0dd",
+    "migrated": "ac3aa37503e80cd5a21c5f9545e8d9072d8ce259125f5bef92d77a3923a1f0dd"
+  },
+  "lib/api-zod/generated/types/updateClientRequest.ts": {
+    "original": "d23e218448b4f6ec21f92892cd0c8d0d16b987378c91c35f11f645da0bfe2e48",
+    "migrated": "d23e218448b4f6ec21f92892cd0c8d0d16b987378c91c35f11f645da0bfe2e48"
+  },
+  "lib/api-zod/generated/types/updateClientRequestFilingStatus.ts": {
+    "original": "5b5a8ec38417135c9f79b1a5ab6ecb3722c0aaf37b1f3475b96434c72f7a6d10",
+    "migrated": "5b5a8ec38417135c9f79b1a5ab6ecb3722c0aaf37b1f3475b96434c72f7a6d10"
+  },
+  "lib/api-zod/generated/types/updatePaymentRequest.ts": {
+    "original": "f3fbeb222027ded5ac8d9eeda78e5f998b396bc90d1e86a553fe6396ed2e2ce5",
+    "migrated": "f3fbeb222027ded5ac8d9eeda78e5f998b396bc90d1e86a553fe6396ed2e2ce5"
+  },
+  "lib/api-zod/generated/types/upsertIncomeSourcesRequest.ts": {
+    "original": "6aa6939c83e094ab9731c71259cbb083bf120d98e05d44809227071f2b80573e",
+    "migrated": "6aa6939c83e094ab9731c71259cbb083bf120d98e05d44809227071f2b80573e"
+  },
+  "lib/api-zod/generated/types/w2Entry.ts": {
+    "original": "473b2b0307f8ba5de8f7baea2b7913aaf11adbbd0c0cad1e1a9823db376bc248",
+    "migrated": "473b2b0307f8ba5de8f7baea2b7913aaf11adbbd0c0cad1e1a9823db376bc248"
+  }
+}

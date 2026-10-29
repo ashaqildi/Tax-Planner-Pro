@@ -1,0 +1,82 @@
+[
+  {
+    "path": "/",
+    "status": 200,
+    "contentType": [
+      "text/html; charset=utf-8"
+    ],
+    "noStore": "no-store, must-revalidate, no-cache, max-age=0, private"
+  },
+  {
+    "path": "/clients",
+    "status": 200,
+    "contentType": [
+      "text/html; charset=utf-8"
+    ],
+    "noStore": "no-store, must-revalidate, no-cache, max-age=0, private"
+  },
+  {
+    "path": "/s-corp-calculator",
+    "status": 200,
+    "contentType": [
+      "text/html; charset=utf-8"
+    ],
+    "noStore": "no-store, must-revalidate, no-cache, max-age=0, private"
+  },
+  {
+    "path": "/tax-savings-analyzer",
+    "status": 200,
+    "contentType": [
+      "text/html; charset=utf-8"
+    ],
+    "noStore": "no-store, must-revalidate, no-cache, max-age=0, private"
+  },
+  {
+    "path": "/tax-savings-analyzer/new",
+    "status": 200,
+    "contentType": [
+      "text/html; charset=utf-8"
+    ],
+    "noStore": "no-store, must-revalidate, no-cache, max-age=0, private"
+  },
+  {
+    "path": "/clients/1",
+    "status": 200,
+    "contentType": [
+      "text/html; charset=utf-8"
+    ],
+    "noStore": "no-store, must-revalidate, no-cache, max-age=0, private"
+  },
+  {
+    "path": "/api/healthz",
+    "status": 200,
+    "contentType": [
+      "application/json; charset=utf-8"
+    ],
+    "noStore": "no-store"
+  },
+  {
+    "path": "/favicon.svg",
+    "status": 200,
+    "contentType": [
+      "image/svg+xml"
+    ],
+    "noStore": "public, max-age=0"
+  },
+  {
+    "path": "/images/logo.png",
+    "status": 200,
+    "contentType": [
+      "image/png"
+    ],
+    "noStore": "public, max-age=0"
+  },
+  {
+    "path": "/images/brand.png",
+    "status": 200,
+    "contentType": [
+      "image/png"
+    ],
+    "noStore": "public, max-age=0"
+  }
+]

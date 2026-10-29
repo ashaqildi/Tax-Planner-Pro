@@ -1,0 +1,10 @@
+# Browser data migration: Tax Savings Analyzer
+
+Tax Savings Analyzer plans and the unsaved new-plan draft live in the browser's `localStorage`, **not in the application database**. A database backup/restore does not include them. Browser storage is isolated by origin (scheme, hostname, and port) and browser profile: a local installation cannot automatically read the original deployed site's storage.
+
+1. In the **same browser profile** where the plans were created, open the original deployed site at its original URL. Go to **Tax Savings Analyzer** and click **Download Backup**. This creates a JSON file containing all saved plans and the current unsaved draft, if any. If the original site is inaccessible or its browser storage was cleared, these records cannot be recovered from the database backup.
+2. Keep the downloaded file somewhere private and secure. It contains taxpayer names, financial figures, business details (possibly EINs), notes, and strategies. Do not email it unencrypted or commit it to a repository.
+3. Open the locally hosted application at its local URL in the browser/profile where you want to use it. Go to **Tax Savings Analyzer** and click **Restore Backup**, then select the downloaded JSON file. Check the confirmation: restore **replaces** all saved plans and the unsaved draft on this local origin; it does not merge them. If this local origin already has data, click **Download Backup** there first and retain that separate backup before confirming.
+4. After restore, check the plan list and open **New Plan** to confirm the draft, if applicable. Keep the backup until you've verified the migration.
+
+The backup format is a versioned JSON object (`format: "tax-savings-analyzer-backup"`, `version: 1`, `exportedAt`, `plans`, and `draft`). Unsupported versions or invalid structure are rejected before replacement. Backups are downloaded and restored locally in your browser; this feature does not send the JSON to a server. PDF and CSV exports are reports/summaries, **not** restorable plan backups.

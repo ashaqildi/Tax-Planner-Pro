@@ -1,0 +1,817 @@
+openapi: 3.1.0
+info:
+  title: Api
+  version: 0.1.0
+  description: Tax Estimated Payment Manager API
+servers:
+  - url: /api
+    description: Base API path
+tags:
+  - name: health
+    description: Health operations
+  - name: clients
+    description: Client management
+  - name: income
+    description: Income source management
+  - name: payments
+    description: Estimated tax payment management
+
+paths:
+  /healthz:
+    get:
+      operationId: healthCheck
+      tags: [health]
+      summary: Health check
+      responses:
+        "200":
+          description: Healthy
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/HealthStatus"
+
+  /clients:
+    get:
+      operationId: listClients
+      tags: [clients]
+      summary: List all clients
+      responses:
+        "200":
+          description: List of clients
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Client"
+    post:
+      operationId: createClient
+      tags: [clients]
+      summary: Create a new client
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateClientRequest"
+      responses:
+        "201":
+          description: Created client
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+
+  /clients/{clientId}:
+    get:
+      operationId: getClient
+      tags: [clients]
+      summary: Get a client by ID
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Client details
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ClientDetail"
+        "404":
+          description: Client not found
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/ErrorResponse"
+    put:
+      operationId: updateClient
+      tags: [clients]
+      summary: Update a client
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdateClientRequest"
+      responses:
+        "200":
+          description: Updated client
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Client"
+    delete:
+      operationId: deleteClient
+      tags: [clients]
+      summary: Delete a client
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      responses:
+        "204":
+          description: Deleted
+
+  /clients/{clientId}/income:
+    get:
+      operationId: listIncomeSources
+      tags: [income]
+      summary: List income sources for a client
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: taxYear
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Income sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/IncomeSource"
+    post:
+      operationId: upsertIncomeSources
+      tags: [income]
+      summary: Upsert income sources for a client and tax year
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpsertIncomeSourcesRequest"
+      responses:
+        "200":
+          description: Saved income sources
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/IncomeSource"
+
+  /clients/{clientId}/payments:
+    get:
+      operationId: listPayments
+      tags: [payments]
+      summary: List estimated tax payments for a client
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: taxYear
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Estimated tax payments
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/EstimatedPayment"
+
+  /clients/{clientId}/payments/{paymentId}:
+    put:
+      operationId: updatePayment
+      tags: [payments]
+      summary: Update an estimated payment (record confirmation number)
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: paymentId
+          in: path
+          required: true
+          schema:
+            type: integer
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UpdatePaymentRequest"
+      responses:
+        "200":
+          description: Updated payment
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/EstimatedPayment"
+
+  /clients/{clientId}/tax-summary:
+    get:
+      operationId: getTaxSummary
+      tags: [clients]
+      summary: Get computed tax summary for a client
+      parameters:
+        - name: clientId
+          in: path
+          required: true
+          schema:
+            type: integer
+        - name: taxYear
+          in: query
+          required: false
+          schema:
+            type: integer
+      responses:
+        "200":
+          description: Tax computation summary
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/TaxSummary"
+
+components:
+  schemas:
+    HealthStatus:
+      type: object
+      properties:
+        status:
+          type: string
+      required:
+        - status
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+      required:
+        - error
+
+    Client:
+      type: object
+      properties:
+        id:
+          type: integer
+        name:
+          type: string
+        email:
+          type: string
+          nullable: true
+        filingStatus:
+          type: string
+          enum: [single, married_filing_jointly, married_filing_separately, head_of_household]
+        pteElection:
+          type: boolean
+        scorporationName:
+          type: string
+          nullable: true
+        scorporationEin:
+          type: string
+          nullable: true
+        currentTaxYear:
+          type: integer
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - name
+        - filingStatus
+        - pteElection
+        - currentTaxYear
+        - createdAt
+        - updatedAt
+
+    ClientDetail:
+      allOf:
+        - $ref: "#/components/schemas/Client"
+        - type: object
+          properties:
+            incomeSources:
+              type: array
+              items:
+                $ref: "#/components/schemas/IncomeSource"
+            payments:
+              type: array
+              items:
+                $ref: "#/components/schemas/EstimatedPayment"
+            taxSummary:
+              $ref: "#/components/schemas/TaxSummary"
+          required:
+            - incomeSources
+            - payments
+            - taxSummary
+
+    CreateClientRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          nullable: true
+        filingStatus:
+          type: string
+          enum: [single, married_filing_jointly, married_filing_separately, head_of_household]
+        pteElection:
+          type: boolean
+        scorporationName:
+          type: string
+          nullable: true
+        scorporationEin:
+          type: string
+          nullable: true
+        currentTaxYear:
+          type: integer
+      required:
+        - name
+        - filingStatus
+        - pteElection
+        - currentTaxYear
+
+    UpdateClientRequest:
+      type: object
+      properties:
+        name:
+          type: string
+        email:
+          type: string
+          nullable: true
+        filingStatus:
+          type: string
+          enum: [single, married_filing_jointly, married_filing_separately, head_of_household]
+        pteElection:
+          type: boolean
+        scorporationName:
+          type: string
+          nullable: true
+        scorporationEin:
+          type: string
+          nullable: true
+        currentTaxYear:
+          type: integer
+
+    W2Entry:
+      type: object
+      properties:
+        id:
+          type: string
+        label:
+          type: string
+        wages:
+          type: number
+        federalWithheld:
+          type: number
+        stateWithheld:
+          type: number
+      required:
+        - id
+        - label
+        - wages
+        - federalWithheld
+        - stateWithheld
+
+    ScorpEntry:
+      type: object
+      properties:
+        id:
+          type: string
+        name:
+          type: string
+        ownershipPct:
+          type: number
+          description: "Client ownership percentage (0–100)"
+        ordinaryIncome:
+          type: number
+          description: "K-1 Box 1 — client's share"
+        otherIncome:
+          type: number
+          description: "K-1 other income — client's share"
+        pteElection:
+          type: boolean
+          nullable: true
+          description: "Per-entity PTE override. Undefined = use client-level flag. Only meaningful when there are multiple entities."
+      required:
+        - id
+        - name
+        - ownershipPct
+        - ordinaryIncome
+        - otherIncome
+
+    EntityBreakdown:
+      type: object
+      properties:
+        entityName:
+          type: string
+        pteElection:
+          type: boolean
+        entityTotalIncome:
+          type: number
+        pteTax:
+          type: number
+        replacementTax:
+          type: number
+        totalEntityTax:
+          type: number
+        quarterlyPte:
+          type: number
+        quarterlyReplacement:
+          type: number
+        pteCreditAtIndividual:
+          type: number
+      required:
+        - entityName
+        - pteElection
+        - entityTotalIncome
+        - pteTax
+        - replacementTax
+        - totalEntityTax
+        - quarterlyPte
+        - quarterlyReplacement
+        - pteCreditAtIndividual
+
+    IncomeSource:
+      type: object
+      properties:
+        id:
+          type: integer
+        clientId:
+          type: integer
+        taxYear:
+          type: integer
+        w2Entries:
+          type: array
+          items:
+            $ref: "#/components/schemas/W2Entry"
+          nullable: true
+        scorpEntries:
+          type: array
+          items:
+            $ref: "#/components/schemas/ScorpEntry"
+          nullable: true
+        w2Wages:
+          type: number
+          nullable: true
+        interest1099:
+          type: number
+          nullable: true
+        dividends1099:
+          type: number
+          nullable: true
+        qualifiedDividends:
+          type: number
+          nullable: true
+        nec1099:
+          type: number
+          nullable: true
+        misc1099:
+          type: number
+          nullable: true
+        scorpK1Ordinary:
+          type: number
+          nullable: true
+        scorpK1OtherIncome:
+          type: number
+          nullable: true
+        partnershipK1Ordinary:
+          type: number
+          nullable: true
+        partnershipK1OtherIncome:
+          type: number
+          nullable: true
+        rentalIncome:
+          type: number
+          nullable: true
+        capitalGainsShortTerm:
+          type: number
+          nullable: true
+        capitalGainsLongTerm:
+          type: number
+          nullable: true
+        socialSecurity:
+          type: number
+          nullable: true
+        pensionRetirement:
+          type: number
+          nullable: true
+        otherIncome:
+          type: number
+          nullable: true
+        federalWithheld:
+          type: number
+          nullable: true
+        stateWithheld:
+          type: number
+          nullable: true
+        priorYearFederalTax:
+          type: number
+          nullable: true
+        priorYearStateTax:
+          type: number
+          nullable: true
+        itemizedDeductions:
+          type: number
+          nullable: true
+        applyQbiDeduction:
+          type: boolean
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - clientId
+        - taxYear
+        - updatedAt
+
+    UpsertIncomeSourcesRequest:
+      type: object
+      properties:
+        taxYear:
+          type: integer
+        w2Entries:
+          type: array
+          items:
+            $ref: "#/components/schemas/W2Entry"
+          nullable: true
+        scorpEntries:
+          type: array
+          items:
+            $ref: "#/components/schemas/ScorpEntry"
+          nullable: true
+        w2Wages:
+          type: number
+          nullable: true
+        interest1099:
+          type: number
+          nullable: true
+        dividends1099:
+          type: number
+          nullable: true
+        qualifiedDividends:
+          type: number
+          nullable: true
+        nec1099:
+          type: number
+          nullable: true
+        misc1099:
+          type: number
+          nullable: true
+        scorpK1Ordinary:
+          type: number
+          nullable: true
+        scorpK1OtherIncome:
+          type: number
+          nullable: true
+        partnershipK1Ordinary:
+          type: number
+          nullable: true
+        partnershipK1OtherIncome:
+          type: number
+          nullable: true
+        rentalIncome:
+          type: number
+          nullable: true
+        capitalGainsShortTerm:
+          type: number
+          nullable: true
+        capitalGainsLongTerm:
+          type: number
+          nullable: true
+        socialSecurity:
+          type: number
+          nullable: true
+        pensionRetirement:
+          type: number
+          nullable: true
+        otherIncome:
+          type: number
+          nullable: true
+        federalWithheld:
+          type: number
+          nullable: true
+        stateWithheld:
+          type: number
+          nullable: true
+        priorYearFederalTax:
+          type: number
+          nullable: true
+        priorYearStateTax:
+          type: number
+          nullable: true
+        itemizedDeductions:
+          type: number
+          nullable: true
+        applyQbiDeduction:
+          type: boolean
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+      required:
+        - taxYear
+
+    EstimatedPayment:
+      type: object
+      properties:
+        id:
+          type: integer
+        clientId:
+          type: integer
+        taxYear:
+          type: integer
+        quarter:
+          type: integer
+          description: "1, 2, 3, or 4"
+        paymentType:
+          type: string
+          enum: [federal_individual, state_individual, state_business_pte, state_business_replacement]
+        entityName:
+          type: string
+          nullable: true
+          description: "Entity name for business payments (null for individual payments)"
+        dueDate:
+          type: string
+          format: date
+        amountDue:
+          type: number
+        amountPaid:
+          type: number
+          nullable: true
+        confirmationNumber:
+          type: string
+          nullable: true
+        paidDate:
+          type: string
+          format: date
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+        updatedAt:
+          type: string
+          format: date-time
+      required:
+        - id
+        - clientId
+        - taxYear
+        - quarter
+        - paymentType
+        - dueDate
+        - amountDue
+        - updatedAt
+
+    UpdatePaymentRequest:
+      type: object
+      properties:
+        amountPaid:
+          type: number
+          nullable: true
+        confirmationNumber:
+          type: string
+          nullable: true
+        paidDate:
+          type: string
+          format: date
+          nullable: true
+        notes:
+          type: string
+          nullable: true
+
+    QuarterSummary:
+      type: object
+      properties:
+        quarter:
+          type: integer
+        dueDate:
+          type: string
+        federalIndividualDue:
+          type: number
+        stateIndividualDue:
+          type: number
+        stateBusinessPteDue:
+          type: number
+        stateBusinessReplacementDue:
+          type: number
+        totalDue:
+          type: number
+      required:
+        - quarter
+        - dueDate
+        - federalIndividualDue
+        - stateIndividualDue
+        - stateBusinessPteDue
+        - stateBusinessReplacementDue
+        - totalDue
+
+    TaxSummary:
+      type: object
+      properties:
+        taxYear:
+          type: integer
+        pteElection:
+          type: boolean
+        totalGrossIncome:
+          type: number
+        scorpPassthroughIncome:
+          type: number
+        scorpEntityTotalIncome:
+          type: number
+        federalAgi:
+          type: number
+        federalQbiDeduction:
+          type: number
+        federalTaxableIncome:
+          type: number
+        federalTaxLiability:
+          type: number
+        federalSafeHarbor:
+          type: number
+        federalRequiredAnnual:
+          type: number
+        federalWithheld:
+          type: number
+        federalBalance:
+          type: number
+        stateAgi:
+          type: number
+        stateTaxableIncome:
+          type: number
+        stateIndividualTaxLiability:
+          type: number
+        stateBusinessPteTax:
+          type: number
+        stateBusinessReplacementTax:
+          type: number
+        stateSafeHarbor:
+          type: number
+        stateRequiredAnnual:
+          type: number
+        stateWithheld:
+          type: number
+        stateBalance:
+          type: number
+        entityBreakdowns:
+          type: array
+          items:
+            $ref: "#/components/schemas/EntityBreakdown"
+        quarters:
+          type: array
+          items:
+            $ref: "#/components/schemas/QuarterSummary"
+      required:
+        - taxYear
+        - pteElection
+        - totalGrossIncome
+        - scorpPassthroughIncome
+        - scorpEntityTotalIncome
+        - federalAgi
+        - federalQbiDeduction
+        - federalTaxableIncome
+        - federalTaxLiability
+        - federalSafeHarbor
+        - federalRequiredAnnual
+        - federalWithheld
+        - federalBalance
+        - stateAgi
+        - stateTaxableIncome
+        - stateIndividualTaxLiability
+        - stateBusinessPteTax
+        - stateBusinessReplacementTax
+        - stateSafeHarbor
+        - stateRequiredAnnual
+        - entityBreakdowns
+        - stateWithheld
+        - stateBalance
+        - quarters

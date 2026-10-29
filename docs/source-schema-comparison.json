@@ -1,0 +1,34 @@
+{
+  "read_only_source_inspection": true,
+  "tables": [
+    {
+      "schema": "public",
+      "table": "clients",
+      "count": "11"
+    },
+    {
+      "schema": "public",
+      "table": "estimated_payments",
+      "count": "224"
+    },
+    {
+      "schema": "public",
+      "table": "income_sources",
+      "count": "10"
+    }
+  ],
+  "columns_matched": 52,
+  "primary_keys": 3,
+  "foreign_keys": 2,
+  "indexes": 3,
+  "sequences": 3,
+  "triggers": 0,
+  "application_functions": 0,
+  "semantic_column_differences": [],
+  "column_order_differences_in_old_export": [
+    "income_sources",
+    "estimated_payments"
+  ],
+  "bootstrap_updated_to_live_source_order": true,
+  "customer_rows_exported": false
+}

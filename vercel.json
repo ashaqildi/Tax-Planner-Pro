@@ -1,0 +1,7 @@
+{
+  "framework": "nextjs",
+  "regions": ["iad1"],
+  "fluid": true,
+  "buildCommand": "npm run build",
+  "installCommand": "npm ci"
+}

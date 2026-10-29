@@ -1,0 +1,30 @@
+{
+  "completedAt": "2026-10-29T14:02:36.276Z",
+  "source_read_only": true,
+  "target_project": "lrgotnhjzvfhyzsikjub",
+  "tls_certificate_and_hostname_verified": true,
+  "transaction_committed": true,
+  "snapshotAt": "2026-10-29T14:02:24.371Z",
+  "tables": [
+    {
+      "table": "clients",
+      "rows": 11,
+      "sha256": "b847709fce73d56d476500175978bf7039503ceb8236111f1e8e13bc59ed9f03",
+      "sequence_preserved": true
+    },
+    {
+      "table": "income_sources",
+      "rows": 10,
+      "sha256": "9abebc189fae3b4de550467b64ee46d1ef18014215982f086b4f3b65d7a1b89b",
+      "sequence_preserved": true
+    },
+    {
+      "table": "estimated_payments",
+      "rows": 224,
+      "sha256": "59406610b509ba1eccd951313175c023c21df2482a2d48e4b804dc2442f3a0cc",
+      "sequence_preserved": true
+    }
+  ],
+  "rls_enabled": true,
+  "browser_roles_have_no_table_grants": true
+}
