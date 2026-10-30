@@ -24,4 +24,4 @@ Add screenshots for UI changes and a short test summary. Use synthetic data; red
 
 ## Approval and rollout
 
-Identify the human reviewer and intended rollout. Keep as draft until ready. Merge only after approval of the latest revision, green checks, resolved conversations, and maintainer authorization. Do not enable auto-merge as a substitute for approval.
+Record the sole owner's explicit publication confirmation and the exact commit it covers. No second-person GitHub approving review is required. After confirmation, the agent can create/update this PR, wait for passing checks, resolve conversations and squash-merge the same revision, then verify Vercel. Leave open if confirmation or checks are missing. Never submit a fake approval review. Follow docs/SOLO_RELEASE.md.

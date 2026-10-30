@@ -4,7 +4,7 @@ Tax Planner Pro by Ahmad. The application retains the Tax Estimated Payment Mana
 
 Migration of the supplied Replit export to Next.js 16.4.3 and TypeScript. Existing React screens, Express endpoints, PostgreSQL schema, tax algorithms, reports, and browser-storage behavior are retained. Next hosts the frontend and API in one deployment. This is a compatibility migration: Wouter and Express intentionally remain to preserve navigation and request handling.
 
-Current database: Supabase tax-manager in North Virginia. The Replit snapshot has been transferred and verified: 11 clients, 10 income records and 224 payment records. Local credentials are configured in ignored .env.local; credentials and customer backups are excluded from the ZIP. See [database migration results](docs/DATABASE_MIGRATION.md). Vercel still needs its own server-only DATABASE_URL environment setting and deployed acceptance testing.
+Current database: Supabase tax-manager in North Virginia. The Replit snapshot has been transferred and verified: 11 clients, 10 income records and 224 payment records. Local credentials are configured in ignored .env.local; credentials and customer backups are excluded from the ZIP. See [database migration results](docs/DATABASE_MIGRATION.md). The owner reports the GitHub-linked Vercel deployment is working. See docs/CI_CD.md for the feature-to-release process; each environment needs its own server-only DATABASE_URL configuration.
 
 ## Run locally
 
@@ -32,6 +32,9 @@ npm start
 Builds do not read or write the database. Database endpoints require a working PostgreSQL URL at runtime. No automatic schema push, seed, or data import runs on startup, build, or deployment. Existing client-detail GET requests can create/recalculate payment records, exactly as in the original app; use a database copy for acceptance testing.
 
 ## Read next
+
+- [Solo-owner confirmation and agent publishing](docs/SOLO_RELEASE.md)
+- [CI/CD and the complete agent playbook](docs/CI_CD.md)
 
 - [Contributor instructions](CONTRIBUTING.md)
 - [Feature branches, PR review and approved merges](docs/DEVELOPMENT_WORKFLOW.md)

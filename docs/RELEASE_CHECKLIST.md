@@ -1,14 +1,14 @@
-# Approved PR to production
+# Owner-confirmed PR to production
 
 ## Before merge
 
-Confirm the intended PR targets main, the latest revision has human approval, all required checks pass, conversations are resolved and merge is authorized. Review the final diff, schema/environment changes and validation evidence. GitHub author self-review does not count. Do not bypass an unmet branch rule.
+Confirm the owner explicitly authorized publication of the presented feature revision, the PR targets main, the head still matches the confirmed commit, all checks pass, the branch is current and conversations are resolved. A sole owner can confirm their own work in chat; no second-person GitHub approval is required. Never fabricate an approving review or bypass active rules. See SOLO_RELEASE.md.
 
 For database changes, back up the target, inspect current schema and data read-only, and rehearse the migration against a copy. Keep changes compatible with both the old and new app during rollout where possible. Document whether schema or app deploys first, and how a failed rollout preserves data. database/schema.sql is the initial bootstrap and must not be rerun on production.
 
 ## Deploy
 
-An authorized maintainer squash-merges the approved PR. Record the main commit. If Vercel's Git integration is enabled, this can trigger production deployment automatically. Otherwise an explicitly authorized deploy is still required; a Git push is not proof of a completed deployment.
+After the owner's explicit publication confirmation, the agent creates/reuses the feature PR, waits for checks, and squash-merges the confirmed revision. Record the main commit. Vercel's Git integration can trigger production automatically; verify the deployment rather than treating a push/merge as proof of success. New code commits require fresh confirmation.
 
 Production uses server-only DATABASE_URL for the Supabase transaction pooler and Node.js 24. vercel.json uses North Virginia (iad1), matching the database. Keep Fluid Compute and the pool lifecycle helper enabled, and keep the bundled official CA with strict TLS verification. Configure environment variables in Vercel itself: .env.local is deliberately not uploaded. Rebuild/redeploy after changing them. Preview environments must use a separate test database.
 

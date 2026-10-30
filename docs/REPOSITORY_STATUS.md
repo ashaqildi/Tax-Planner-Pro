@@ -1,21 +1,33 @@
 # Repository workflow status
 
-Repository: https://github.com/Xghayor/tax-planner-pro
+Observed 2026-10-30. Repository: https://github.com/Xghayor/tax-planner-pro. Default branch: main. The repository is currently PUBLIC (verified through GitHub API). Earlier private-plan observations are historical. This task did not change visibility, billing, collaborators or account ownership.
 
-Default branch: main. Repository visibility observed as public. The existing main commit at setup was 95382abc55e013c3bdad70f79a58908ad476ee52, containing only README.md. That history is preserved.
+## Solo-owner release policy
 
-The migrated app and workflow are prepared on feat/nextjs-supabase-migration for a PR against main. Local checks pass: 455 tests, TypeScript and optimized production build. The staged Git blobs preserve all 78 unchanged source fingerprints; credentials, customer backups and generated/dependency folders are excluded. Git's whitespace check reports inherited trailing spaces in retained original source; these were left intact to preserve the migration baseline.
+The owner requested removal of second-person approval and a confirm-to-publish process. See SOLO_RELEASE.md. The agent presents a tested feature and exact commit; the owner's explicit yes authorizes pushing the branch, creating/updating its PR, waiting for checks, squash-merging that revision and verifying deployment. No formal GitHub approving review or second account is required. New code needs fresh confirmation. Agents do not create fake approvals.
 
-Publication, PR creation, remote CI and branch-protection configuration are not yet verified. Git authentication is unavailable in the Codex execution environment; the owner is taking over the push from their own terminal. Main must not receive the feature before its PR is approved and merge is authorized.
+## Saved GitHub controls
 
-Committed workflow resources:
+GitHub confirmed "Branch protection rule settings saved" for main. The saved form was reopened and verified:
 
-- AGENTS.md: AI context, feature branch and approval gates.
-- CONTRIBUTING.md and docs/LOCAL_SETUP.md: development setup and contributor rules.
-- docs/DEVELOPMENT_WORKFLOW.md: scope → branch → implement → validate → PR → human approval → authorized squash merge → deployment verification.
-- docs/AI_TASK_TEMPLATE.md and docs/RELEASE_CHECKLIST.md: resumable handoffs, rollout and rollback.
-- .github/workflows/ci.yml: Node 24, npm ci, tests, TypeScript and production build, without database secrets. Expected check: validate.
-- .github/PULL_REQUEST_TEMPLATE.md and CODEOWNERS: review evidence and owner routing.
-- .gitattributes: exact source-byte preservation for cross-platform parity checks.
+- Require a pull request: enabled.
+- Require approvals: disabled.
+- Dismiss stale approvals: disabled.
+- Require code-owner review: disabled.
+- Require approval of the most recent reviewable push: disabled.
+- Required status checks and up-to-date branch: enabled, retaining the existing validate check.
+- Require conversation resolution: enabled.
+- Do not allow bypassing the settings: enabled.
+- Allow force pushes and deletions: disabled.
 
-Markdown/CODEOWNERS do not themselves enforce branch protection. After the first successful CI run, configure required reviews and validate status on main as described in DEVELOPMENT_WORKFLOW.md. An author's own approval cannot satisfy GitHub's approving-review requirement; a self-authored PR needs a different eligible human collaborator. Never report those controls as active until their actual settings are verified.
+The branch list reports this rule currently applies to one branch and no longer displays the earlier private-plan enforcement warning. If the repository is made private on a plan that does not support protection, enforcement may stop; verify the actual settings after handover. Chat publication confirmation is agent policy and is not a GitHub-enforced approval.
+
+## CI and deployment
+
+The existing main CI run 40898661658 passed for commit 1bf1c2aac6193427bb8e93c69b9092cca55b2d83. PR #1's original workflow revision 9e2fe764d6bf5c24d8d1a3c514c1f3256b6ca851 passed both push CI (41068507322) and PR CI (41068651642), with Vercel preview Ready. These historical results do not validate subsequent revisions; inspect each PR's latest checks.
+
+CI validate uses Node 24, npm ci, tests, TypeScript and a production build without database credentials. It runs on PRs to main, main pushes and feature/fix/docs/chore branch pushes. Vercel's existing Git integration owns deployments. No deployment token, bot approval, automatic production data copy or migration has been added.
+
+The owner reports the production app works. GitHub lists https://tax-planner-pro-virid.vercel.app as its site. This task changes documentation/settings only; it does not independently verify production data or environment scoping. Vercel Hobby private-repository deployment restrictions still apply after handover. Supabase is to remain in the current account per the owner's instruction.
+
+PR #1 contains the workflow and agent-documentation changes. Keep it open until the owner confirms publication of its current revision. Do not infer that authorization from a request to change the process. Update this status when settings, ownership, review policy or hosting change.

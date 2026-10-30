@@ -1,4 +1,3 @@
-# Repository owner. This requests review; enforcement requires branch protection.
-# GitHub cannot count a review by the PR author. Self-authored PRs need another
-# eligible collaborator when a required approving review is enabled.
+# Optional review routing; solo releases do not require code-owner approval.
+# Update this owner after a repository handover. See docs/SOLO_RELEASE.md.
 * @Xghayor

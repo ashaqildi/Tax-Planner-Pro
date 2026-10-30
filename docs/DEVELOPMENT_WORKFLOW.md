@@ -1,5 +1,9 @@
 # Branch, review and merge workflow
 
+This repository uses the [solo-owner confirmation process](SOLO_RELEASE.md): the owner confirms the feature revision, then the agent creates/updates the PR, waits for checks, merges and verifies deployment. No second-person approving review is required.
+
+See [CI/CD command playbook](CI_CD.md) for fresh-clone commands, PR submission, deployment configuration and an agent task prompt.
+
 ## Branch policy
 
 `main` contains reviewed release-ready changes. Work on one branch per task: `feat/<short-topic>`, `fix/<short-topic>`, `docs/<short-topic>`, or `chore/<short-topic>`. Names should describe the task and must not contain taxpayer names, emails or other private data. Avoid long-lived develop branches and unrelated changes in the same PR.
@@ -12,9 +16,9 @@ flowchart LR
   D --> E[Local validation]
   E --> F[Push branch and open draft PR]
   F --> G[CI and isolated preview checks]
-  G --> H[Human review of latest revision]
+  G --> H[Owner tests feature and confirms publication]
   H -->|Changes requested| D
-  H -->|Approved and checks green| I[Authorized squash merge]
+  H -->|Owner confirms and checks green| I[Authorized squash merge]
   I --> J[Verify deployment and data]
   J --> K[Sync main and clean up]
 ```
@@ -63,28 +67,21 @@ Do not force-push main. If a branch is shared, prefer merging origin/main into i
 
 ## 3. Open and review a PR
 
-Open a draft PR with base main and the feature branch as head. Use .github/PULL_REQUEST_TEMPLATE.md. Describe the problem/result, validation, relevant risks, schema/environment requirements, rollout and rollback. Attach synthetic-data screenshots for UI work. Request the appropriate human reviewer; CODEOWNERS identifies the repository owner.
+Open a draft PR with base main and the feature branch as head. Use .github/PULL_REQUEST_TEMPLATE.md. Describe the problem/result, validation, relevant risks, schema/environment requirements, rollout and rollback. Attach synthetic-data screenshots for UI work. The sole owner reviews the feature and confirms publication in chat; CODEOWNERS is optional routing. The agent can create the PR after confirmation or use an existing draft for testing.
 
-CI workflow `CI` runs job `validate` on PRs to main and main pushes. It installs locked dependencies, runs parity/connection tests, typechecks and builds without database credentials. Official actions are pinned to verified release commit SHAs. Do not add production secrets to PR CI, use pull_request_target to run untrusted code, or broaden workflow token permissions for a normal feature.
+CI workflow `CI` runs job `validate` on PRs to main, main pushes, and pushes to feat/, fix/, docs/ and chore/ branches. It installs locked dependencies, runs parity/connection tests, typechecks and builds without database credentials. Official actions are pinned to verified release commit SHAs. Do not add production secrets to PR CI, use pull_request_target to run untrusted code, or broaden workflow token permissions for a normal feature.
 
-Mark ready for review only when the latest commit has green checks and the acceptance evidence is ready. Address feedback on the same branch. New code commits require renewed approval, including when a previously reviewed conflict resolution changes behavior.
+Present the validated feature and exact revision to the owner. After publication confirmation, the agent marks any draft ready and completes the checked merge. New code commits, including conflict resolutions, require renewed owner confirmation.
 
-## 4. Approval is a gate
+## 4. Owner publication confirmation is the gate
 
-Merge requires all of the following:
+Follow SOLO_RELEASE.md. The sole owner can review their own feature and say yes to publishing the presented revision. That yes authorizes the agent to push, create/update the PR, wait for all checks (including the PR validate run), and squash-merge the exact confirmed head. No formal GitHub approval review or second account is required. Never fabricate a review.
 
-1. A human reviewer approved the latest reviewed revision and no outstanding changes-requested review remains.
-2. The latest `validate` check passed, required checks are complete, and review conversations are resolved.
-3. The branch has no merge conflict, documentation is current, and any database/environment rollout has been reviewed.
-4. The maintainer has authorized merging that PR. Approval from a chat is not a GitHub review, and GitHub's required review rules still apply.
-
-AI agents may prepare branches and PRs within their task authorization. They must stop at the review gate, report the PR/check status, and wait for human approval/merge authorization. They must not self-approve, infer approval from silence, bypass branch protection, lower required reviews, enable auto-merge to bypass review, or push the feature commit directly to main.
-
-GitHub does not count the author's own approving review. If Xghayor authored a PR and the repository requires one GitHub approving review, another eligible collaborator must review it. Do not weaken the rule to work around that limitation. Add an appropriate reviewer/collaborator deliberately, with the owner's approval.
+Stop if confirmation is absent, checks fail, the head changes, main is out of date, conflicts exist or conversations remain unresolved. Any new code revision needs fresh owner confirmation. Keep the PR and report the blocker; do not bypass branch rules or push directly to main.
 
 ## 5. Merge and release
 
-After the gate is satisfied, an authorized maintainer uses squash merge. Confirm the intended base, latest head SHA, approval state and checks at merge time. Never merge a stale reviewed revision after new commits. Keep the PR link and resulting main commit in the handoff.
+After the gate is satisfied, an authorized maintainer uses squash merge. Confirm the intended base, confirmed head SHA, owner authorization and checks at merge time. Never merge a stale reviewed revision after new commits. Keep the PR link and resulting main commit in the handoff.
 
 Follow RELEASE_CHECKLIST.md. When GitHub is connected to Vercel, main may deploy automatically; a merge is therefore a release action. Production uses its own server-only DATABASE_URL. Preview branches use a separate test database and synthetic data, not live taxpayer records.
 
@@ -101,12 +98,12 @@ Delete the feature branch only when its work is confirmed in main and no unmerge
 
 Markdown and CODEOWNERS communicate policy; branch protection/rulesets enforce it. For main, configure these in GitHub Settings → Rules/Rulesets or Branches:
 
-- Require a pull request and at least one approving review.
-- Dismiss stale approvals after code changes, require approval of the latest reviewable push when supported, and resolve conversations.
+- Require a pull request, with Require approvals disabled.
+- Disable stale-approval dismissal, code-owner approval and latest-reviewable-push approval. Keep conversation resolution required.
 - Require status check `validate` from the CI workflow. Enable it after the first successful CI run makes the check selectable. Prefer requiring the branch to be up to date.
 - Block force pushes and branch deletion. Apply the rules to administrators/disable bypass where the plan supports it.
 - Allow squash merges and automatic deletion of merged head branches if desired; do not enable unrestricted auto-merge.
 
 CODEOWNERS alone does not enforce approval. GitHub's free plan supports protected branches for public repositories; private repository enforcement may require a paid plan. Do not change visibility or subscribe to a plan as a workaround. See [GitHub branch protection documentation](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches).
 
-Record actual configured settings in REPOSITORY_STATUS.md. Do not describe an unconfigured rule, unobserved approval or unrun CI check as enforced/passed. Bootstrap for this migration is a feature branch PR against the existing initial README commit; main must remain unchanged until that PR is reviewed and authorized for merge.
+Record actual configured settings in REPOSITORY_STATUS.md. Do not describe an unconfigured rule, unobserved approval or unrun CI check as enforced/passed. The migrated application is already on main and the owner reports Vercel deployment is working. All subsequent changes follow the feature-branch PR gate.

@@ -26,9 +26,9 @@ Read AGENTS.md, README.md, LOCAL_SETUP.md, DEVELOPMENT_WORKFLOW.md and the files
 - Schema/environment changes and ordering:
 - Known compatibility limitations:
 - Rollback approach:
-- Human review/approval status:
+- Owner publication confirmation and exact confirmed SHA:
 - Merge authorization status and next owner action:
 
-Do not equate a proposal with completion, a local check with remote CI, or a reviewed old commit with approval of a newer one. If review is pending, leave the PR open and report that state. If merge is authorized after approval, recheck the latest head, required checks and unresolved conversations before merging; then verify main/deployment and report the resulting commit.
+Do not equate a proposal with completion or a local check with remote CI. Present the feature and exact commit, ask the sole owner whether to publish, and record the response. After an explicit yes, create/update the PR, monitor checks, confirm the head has not changed, squash-merge without bypass, and verify deployment. No second-person approving review is required and no fake review is submitted. If authorization or checks are missing, leave the PR open. Follow SOLO_RELEASE.md.
 
 For a resumed task, inspect its existing branch/PR and continue it. Do not create duplicates, start over, alter original parity baselines or perform unrelated tax-law updates. Authentication, branch protection, deployment, credential changes and data transfers must stay within their explicit task authorization and applicable tool policies.
