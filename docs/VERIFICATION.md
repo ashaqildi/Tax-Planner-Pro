@@ -8,6 +8,10 @@ Both pooler connections, npm run db:check and a local production Next server wer
 
 Still pending: actual Vercel environment/deployment checks, full CRUD/browser/report acceptance, and analyzer browser backup transfer. The earlier checkpoints below are historical and their missing-source/database limitations are superseded by the results above. npm audit currently reports seven entries; the added Vercel package dependency chain also references the already documented Zod advisory. No forced breaking dependency upgrade was applied.
 
+## Follow-up: dashboard tools heading, 2026-11-11
+
+User requested renaming the dashboard tools heading from "Tax Planning Tools" to "All Tax Planning Tools". Only the heading text in client/pages/Home.tsx changed; card order, links and routes are unchanged. tests/home-dashboard.test.ts renders the real dashboard without a database and checks the new heading, the absence of the old one and the three cards in order; it fails against the previous heading and passes with the new one. Home.tsx's original fingerprint is retained and its documented current fingerprint was updated for this authorized change. Calculation engines, API handlers and the database schema did not change.
+
 ## Follow-up: separate client directory
 
 User requested moving All Clients from the dashboard bottom to the third Tax Planning Tools card and a separate /clients route. Implemented and verified dashboard card order, absence of the bottom directory, and navigation to the new client directory in the browser. Existing directory markup, creation and delete workflows were moved intact; no live CRUD check is claimed without a database. Current regression suite passes 453 checks (375 original calculation outputs plus 78 unchanged source modules); Home.tsx is now an explicitly authorized UI change rather than an unchanged-source assertion. Original fingerprints are retained. TypeScript and the optimized production build passed. Supabase connection and transfer instructions were added to DEPLOYMENT.md; no credentials or data transfer have been supplied or executed.
