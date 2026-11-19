@@ -46,8 +46,8 @@
   },
   "client/pages/Home.tsx": {
     "original": "f5aa40cf3594eed478aafeefdd0e54872dced90adae02c20dbe1940dfeeba56a",
-    "migrated": "e06f1eef9cbcc796085d25dba263554cfe45fe876425d6f9a1268f215389e72a",
-    "change": "User-requested All Clients card and separate /clients directory, 2026-10-29"
+    "migrated": "6cb484cc2ccca927e191381a6f519d927a1de3c0ae73feefd18fa7919f186acd",
+    "change": "User-requested All Clients card and separate /clients directory, 2026-10-29; user-requested tools heading rename to All Tax Planning Tools, 2026-11-11"
   },
   "client/pages/not-found.tsx": {
     "original": "718a41bd05a163d1db32480aba013f5fe754894e656b6542a8e4b302275b172e",

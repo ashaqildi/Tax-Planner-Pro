@@ -21,7 +21,7 @@ The pg pool is cached on globalThis for warm requests and development reloads, l
 | Runtime API schemas | lib/api-zod | Generated Zod exports |
 | Schema | lib/db/schema; database/schema.sql | PostgreSQL |
 
-Frontend routes: `/`, `/clients`, `/clients/:id`, `/s-corp-calculator`, `/tax-savings-analyzer`, `/tax-savings-analyzer/new`, and `/tax-savings-analyzer/:id`. Unknown UI paths show the original not-found component. The dashboard has three Tax Planning Tools cards; All Clients is third and opens the separate client directory. Client creation, listing and deletion on that page reuse the original directory behavior.
+Frontend routes: `/`, `/clients`, `/clients/:id`, `/s-corp-calculator`, `/tax-savings-analyzer`, `/tax-savings-analyzer/new`, and `/tax-savings-analyzer/:id`. Unknown UI paths show the original not-found component. The dashboard has three cards under the All Tax Planning Tools heading; All Clients is third and opens the separate client directory. Client creation, listing and deletion on that page reuse the original directory behavior.
 
 ## Calculation boundaries
 
